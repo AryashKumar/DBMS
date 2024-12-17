@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: red;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .movie-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .movie-card {
+            border: 1px solid red;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .movie-details {
+            text-align: left;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        a {
+            color: red;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Movies</h1>
+    </header>
+    <div class="movie-container">
+        {% for movie in movies %}
+        <div class="movie-card">
+            <div class="movie-details">
+                <h2>{{ movie['title'] }}</h2>
+                <p><strong>Genre:</strong> {{ movie['genre'] }}</p>
+                <p><strong>Duration:</strong> {{ movie['duration'] }} minutes</p>
+                <p><strong>Rating:</strong> {{ movie['rating'] }}</p>
+                <a href="/showtimes/{{ movie['movie_id'] }}">View Showtimes</a>
+            </div>
+            <div>
+                <form method="POST" action="/delete_movie/{{ movie['movie_id'] }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+        <a href="/add_movie">Add Movie</a>
+    </div>
+</body>
+</html>

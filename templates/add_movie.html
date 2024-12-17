@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: red;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border: 1px solid red;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid red;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+        }
+        button {
+            background-color: red;
+            border: none;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Add Movie</h1>
+    </header>
+    <div class="form-container">
+        <form method="POST">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" id="genre">
+
+            <label for="duration">Duration (mins)</label>
+            <input type="number" name="duration" id="duration" required>
+
+            <label for="rating">Rating (out of 10)</label>
+            <input type="number" name="rating" id="rating" step="0.1" required>
+
+            <button type="submit">Add Movie</button>
+        </form>
+    </div>
+</body>
+</html>

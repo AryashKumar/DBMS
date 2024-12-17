@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: red;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border: 1px solid red;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid red;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+        }
+        button {
+            background-color: red;
+            border: none;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Ticket</h1>
+    </header>
+    <div class="form-container">
+        <form method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="seats_booked">Number of Seats</label>
+            <input type="number" name="seats_booked" id="seats_booked" required>
+
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}
+
+            <button type="submit">Book Ticket</button>
+        </form>
+    </div>
+</body>
+</html>

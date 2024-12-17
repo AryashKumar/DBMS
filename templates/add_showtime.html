@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Showtime</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: red;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border: 1px solid red;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid red;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+        }
+        button {
+            background-color: red;
+            border: none;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        a {
+            color: red;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Add Showtime</h1>
+    </header>
+    <div class="form-container">
+        <form method="POST">
+            <label for="show_date">Show Date</label>
+            <input type="date" name="show_date" id="show_date" required>
+
+            <label for="show_time">Show Time</label>
+            <input type="time" name="show_time" id="show_time" required>
+
+            <label for="available_seats">Available Seats</label>
+            <input type="number" name="available_seats" id="available_seats" required>
+
+            <button type="submit">Add Showtime</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

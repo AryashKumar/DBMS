@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showtimes</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: red;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        .container {
+            padding: 2rem;
+            text-align: center;
+        }
+        .showtime-card {
+            border: 1px solid red;
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .showtime-details {
+            text-align: left;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        a {
+            color: red;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Showtimes</h1>
+    </header>
+    <div class="container">
+        {% for showtime in showtimes %}
+        <div class="showtime-card">
+            <div class="showtime-details">
+                <p><strong>Date:</strong> {{ showtime['show_date'] }}</p>
+                <p><strong>Time:</strong> {{ showtime['show_time'] }}</p>
+                <p><strong>Available Seats:</strong> {{ showtime['available_seats'] }}</p>
+                <a href="/book_ticket/{{ showtime['showtime_id'] }}">Book Tickets</a>
+            </div>
+            <form method="POST" action="/delete_showtime/{{ showtime['showtime_id'] }}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+        <a href="/add_showtime/{{ movie_id }}">Add Showtime</a>
+    </div>
+</body>
+</html>
